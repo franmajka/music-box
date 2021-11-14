@@ -1,0 +1,60 @@
+.schedule {
+  --days-count: 7;
+  --row-part-height: 10px;
+  --row-parts-count: 4;
+  --border-color: #999;
+
+}
+
+.schedule {
+  display: flex;
+  justify-content: center;
+}
+
+.table {
+  /*
+    If borders of different cells
+    touch each other there will be
+    only one border
+
+    It just makes table fancier
+  */
+  border-collapse: collapse;
+
+  /* Cols are the same width */
+  table-layout: fixed;
+
+  margin: 3em 0;
+  width: 60%;
+
+  box-shadow: 0 0 0 1px var(--border-color);
+  border-radius: 10px;
+}
+
+.thead {
+  height: calc(var(--row-part-height) * var(--row-parts-count));
+}
+
+.tr {
+  height: var(--row-part-height);
+}
+
+/* Horizontal borders */
+.tbody .tr:nth-child(4n + 1) td {
+  border-top: 1px solid var(--border-color);
+}
+
+/* Vertical borders */
+.tr td:not(:first-child),
+.tbody .tr:not(:nth-child(4n + 1)) td:first-child,
+.tr th:not(:first-child) {
+  border-left: 1px solid var(--border-color);
+}
+
+.lesson {
+  background-color: #ddd;
+}
+
+.tr td {
+  text-align: center;
+}
